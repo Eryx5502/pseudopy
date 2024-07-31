@@ -59,4 +59,6 @@ def plot_finish(contours, spectrum=None, contour_labels=True, autofit=True):
     # plot contour labels?
     from matplotlib.ticker import LogFormatterMathtext
     if contour_labels:
-        pyplot.clabel(contours, inline=1, fmt=LogFormatterMathtext())
+        fmt = LogFormatterMathtext()
+        fmt.create_dummy_axis()
+        pyplot.clabel(contours, inline=1, fmt=fmt)
