@@ -61,4 +61,5 @@ def plot_finish(contours, spectrum=None, contour_labels=True, autofit=True):
     if contour_labels:
         fmt = LogFormatterMathtext()
         fmt.create_dummy_axis()
-        pyplot.clabel(contours, inline=1, fmt=fmt)
+        manual = True if contour_labels == 'manual' else False
+        pyplot.clabel(contours, inline=1, fmt=fmt, manual=manual)
